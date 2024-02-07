@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import { FiLogIn } from "react-icons/fi";
+import SendIcon from "@mui/icons-material/Send";
+import { TextField, Button } from "@mui/material";
+import ImgLogin from "../../assets/img-login.jpg";
 
 import "./styles.css";
 
@@ -11,24 +13,31 @@ export default function Login() {
 	return (
 		<div className="login-wrapper">
 			<div className="login-container">
-				<div className="img-container">img</div>
+				<div className="img-container">
+					<img src={ImgLogin} alt="Login Image" />
+				</div>
 				<div className="form-container">
 					<form>
 						<h1>Bem-vindo!</h1>
 
-						<input
-							placeholder="Nome de usuário"
-							defaultValue={id}
-							onChange={(e) => setId(e.target.value)}
+						<TextField
+							id="outlined-basic"
+							label="Usuário"
+							variant="outlined"
+							margin="normal"
+							onSubmit={(e) => setId(e.target.value)}
 						/>
-						<input
-							placeholder="Senha"
-							defaultValue={password}
-							onChange={(e) => setPassword(e.target.value)}
+						<TextField
+							id="outlined-basic"
+							label="Senha"
+							variant="outlined"
+							type="password"
+							margin="normal"
+							onSubmit={(e) => setPassword(e.target.value)}
 						/>
-						<button className="button" type="submit">
+						<Button variant="contained" size="large">
 							Entrar
-						</button>
+						</Button>
 					</form>
 				</div>
 			</div>
